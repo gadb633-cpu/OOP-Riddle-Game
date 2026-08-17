@@ -41,7 +41,7 @@ class MultipleChoiceRiddle(Riddle):
     def possible_answers(self):
         return list(self.__possible_answers)  
     def display(self) -> None:
-        print(f"id is: {self.riddle_id},\n {self.possible_answers}")
+        print(f"id is: {self.riddle_id},\n{self.possible_answers}")
     def check_answer(self, answer: str) -> bool:
         if answer == self.correct_answer:
             return True
