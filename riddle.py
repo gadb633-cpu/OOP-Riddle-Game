@@ -12,6 +12,8 @@ class Riddle(ABC):
     def check_answer(self, answer: str) -> bool:
         if answer == self.correct_answer:
             return True
+        else:
+            return False
     def get_type(self) -> str:
         pass
     def to_dict(self) -> dict:
@@ -37,14 +39,14 @@ class MultipleChoiceRiddle(Riddle):
         self.__possible_answers = possible_answers
     @property
     def possible_answers(self):
-        return self.__possible_answers   
+        return list(self.__possible_answers)  
     def display(self) -> None:
-        return [self.riddle_id,self.question,self.correct_answer,self.difficulty,self.category,self.possible_answers]
+        print(f"id is: {self.riddle_id},\n {self.possible_answers}")
     def check_answer(self, answer: str) -> bool:
         if answer == self.correct_answer:
             return True
-    def get_possible_answers(self) -> list[str]:
-        return list(self.__possible_answers)
+        else:
+            return False
 class FourAnswerRiddle(MultipleChoiceRiddle):
     def get_type(self) -> str:
         return "multiple_4"
@@ -53,11 +55,10 @@ class TwoAnswerRiddle(MultipleChoiceRiddle):
         return "multiple_2"
 class OpenRiddle(Riddle):
     def display(self) -> None:
-        pass
+        print(f"id is: {self.riddle_id}")
     def get_type(self) -> str: 
         return "open"
-riddle1 = MultipleChoiceRiddle(1,"what your name? ","gad","hart","names",[1,2,3])                        
-print(riddle1.display())
-print(riddle1.check_answer("gf"))
-x = FourAnswerRiddle(1,"what your name? ","gad","hart","names",[1,2,3])
-print(x.get_type())
+
+Riddles = [FourAnswerRiddle(1,"what your name? ","gad","hart","names",["gad","yossi","shlomi","gay"]),
+           OpenRiddle(2,"what your name? ","gad","hart","names"),
+           TwoAnswerRiddle(3,"your name is gad? ","yes","hart","names",["yes","no"])]
