@@ -18,8 +18,9 @@ class RiddleGame():
             execution_time = end_time - start_time
             print(f"time run: {execution_time:.2f} Seconds")
             total_time += execution_time
+            print(f"hi {player} \ntotal time is: {total_time:.2f}")
             result1 = GameResult(player,strftime("%d/%m/%Y"),total_time,self.__results)
-            print(f"hi {player} \nnum of correct is: {result1.get_total_riddles}")
+            print(f"num of correct is: {result1.get_total_riddles}")
         return result1        
             
     def ask_riddle(self, riddle: Riddle) -> QuestionResult:
