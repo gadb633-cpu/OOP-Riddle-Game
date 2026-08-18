@@ -21,8 +21,7 @@ class RiddleGame():
         print(f"hi {player} \ntotal time is: {total_time:.2f} Seconds")
         result1 = GameResult(player,strftime("%d/%m/%Y"),total_time,self.__results)
         print(f"num of correct is: {result1.get_total_riddles}")
-        return result1        
-            
+        return result1                
     def ask_riddle(self, riddle: Riddle) -> QuestionResult:
         start_time = perf_counter()
         while True:
