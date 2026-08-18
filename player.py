@@ -7,5 +7,3 @@ class Player():
     
     def rename(self, new_username: str) -> None:
         self.__username = new_username
-
-

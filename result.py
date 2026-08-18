@@ -50,5 +50,3 @@ class GameResult():
         return average
     def to_csv_row(self) -> list:
         pass
-
-
