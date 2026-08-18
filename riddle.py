@@ -58,7 +58,7 @@ class OpenRiddle(Riddle):
         print(f"id is: {self.riddle_id}")
     def get_type(self) -> str: 
         return "open"
-
-Riddles = [FourAnswerRiddle(1,"what your name? ","gad","hart","names",["gad","yossi","shlomi","gay"]),
-           OpenRiddle(2,"what your name? ","gad","hart","names"),
-           TwoAnswerRiddle(3,"your name is gad? ","yes","hart","names",["yes","no"])]
+question1 = FourAnswerRiddle(1,"what your name? ","gad","hart","names",["gad","yossi","shlomi","gay"])
+question2 = OpenRiddle(2,"what your name? ","gad","hart","names")
+question3 =TwoAnswerRiddle(3,"your name is gad? ","yes","hart","names",["yes","no"])
+Riddles = [question1,question2,question3]

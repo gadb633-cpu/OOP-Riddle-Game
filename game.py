@@ -18,23 +18,28 @@ class RiddleGame():
             execution_time = end_time - start_time
             print(f"time run: {execution_time:.2f} Seconds")
             total_time += execution_time
-            print(f"hi {player} \ntotal time is: {total_time:.2f}")
-            result1 = GameResult(player,strftime("%d/%m/%Y"),total_time,self.__results)
-            print(f"num of correct is: {result1.get_total_riddles}")
+        print(f"hi {player} \ntotal time is: {total_time:.2f} Seconds")
+        result1 = GameResult(player,strftime("%d/%m/%Y"),total_time,self.__results)
+        print(f"num of correct is: {result1.get_total_riddles}")
         return result1        
             
     def ask_riddle(self, riddle: Riddle) -> QuestionResult:
+        start_time = perf_counter()
         while True:
             riddle.display()
             print(riddle.question)
             enswer = input("enter enswer: ")
             if riddle.check_answer(enswer):
                 print("corrent!")
-                return QuestionResult(riddle.riddle_id,riddle.get_type,riddle.category,0)
+                end_time = perf_counter()
+                execution_time = end_time - start_time
+                question_result = QuestionResult(riddle.riddle_id,riddle.get_type(),riddle.category,execution_time)
+                return question_result
             print("try agen! ")
     def print_summary(self, result: GameResult) -> None:
-        pass
+        print(result.average_time_by_type())
+        print(result.average_time_by_category())
+        
 player = input("enter usernsme: ")
-
 manager = RiddleGame(player,Riddles)
-manager.start()
+manager.print_summary(manager.start())
