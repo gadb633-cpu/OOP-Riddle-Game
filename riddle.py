@@ -1,4 +1,5 @@
 from abc import ABC,abstractmethod
+from json import *
 class Riddle(ABC):
     def __init__(self,id,question,correct_answer,difficulty,category):
         self.__riddle_id = id
@@ -58,7 +59,3 @@ class OpenRiddle(Riddle):
         print(f"id is: {self.riddle_id}")
     def get_type(self) -> str: 
         return "open"
-question1 = FourAnswerRiddle(1,"what your name? ","gad","hart","names",["gad","yossi","shlomi","gay"])
-question2 = OpenRiddle(2,"what your name? ","gad","hart","names")
-question3 =TwoAnswerRiddle(3,"your name is gad? ","yes","hart","names",["yes","no"])
-Riddles = [question1,question2,question3]
