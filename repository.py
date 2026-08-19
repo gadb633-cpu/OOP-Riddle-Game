@@ -18,14 +18,36 @@ class RiddleRepository:
                 instance3 = OpenRiddle(i["id"],i["question"],i["correct_answer"],i["difficulty"],i["category"])
                 Riddles.append(instance3)
         return Riddles 
-    def add_riddle(self, riddle: Riddle) -> None:
-        pass
-    def get_all_riddles(self) -> list[Riddle]:
+    def add_riddle(self) -> None:
+        id_ = input("enter id: ")
+        question = input("enter question: ")
+        correct_answer = input("enter correct_answer: ")
+        difficulty = input("enter difficulty: ")
+        category = input("enter category: ")
+        type = input("enter type: ")
+        f = open("riddles.json","r")
+        riddles =load(f)
+        f.close()
+        if type == "multiple_4":
+            possible_answers = input("enter 4 option possible_answers: ")
+            riddles.append({"id":id_, "question":question,"type":type,"correct_answer":correct_answer,"difficulty":difficulty,"category":category,"possible_answers":possible_answers})
+        elif type == "multiple_2":
+            possible_answers = input("enter 2 option possible_answers: ")
+            riddles.append({"id":id_, "question":question,"type":type,"correct_answer":correct_answer,"difficulty":difficulty,"category":category,"possible_answers":possible_answers})
+        elif type == "open":
+            riddles.append({"id":id_, "question":question,"type":type,"correct_answer":correct_answer,"difficulty":difficulty,"category":category})    
+        return riddles
+        # return list(.riddles_list_update)
+        # new_riddle = {}
+        # new_riddle["id"]=riddle.riddle_id
+        # return new_riddle
+        
+    def get_all_riddles() -> list[Riddle]:
         pass
     def update_riddle(self, riddle_id: int, new_data: dict) -> bool:
         pass
     def delete_riddle(self, riddle_id: int) -> bool:
         pass   
-    def save_riddles(self, riddles: list[Riddle]) -> None:
-        pass
-riddles_list = RiddleRepository("riddles.json")    
+    def save_riddles(self, riddles: list) -> None:
+        with open(self.__file_path, "w") as file:
+            dump(riddles, file,indent=4)
