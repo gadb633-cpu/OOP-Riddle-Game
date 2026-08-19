@@ -17,7 +17,15 @@ class RiddleRepository:
             elif i["type"] == "open":
                 instance3 = OpenRiddle(i["id"],i["question"],i["correct_answer"],i["difficulty"],i["category"])
                 Riddles.append(instance3)
-        return Riddles    
+        return Riddles 
+    def add_riddle(self, riddle: Riddle) -> None:
+        pass
+    def get_all_riddles(self) -> list[Riddle]:
+        pass
+    def update_riddle(self, riddle_id: int, new_data: dict) -> bool:
+        pass
+    def delete_riddle(self, riddle_id: int) -> bool:
+        pass   
     def save_riddles(self, riddles: list[Riddle]) -> None:
         pass
 riddles_list = RiddleRepository("riddles.json")    
