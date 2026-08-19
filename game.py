@@ -27,8 +27,8 @@ class RiddleGame():
         while True:
             riddle.display()
             print(riddle.question)
-            # enswer = input("your enswer: ")
-            enswer= enswer.lower(input("your enswer: "))
+            enswer = input("your enswer: ")
+            enswer = enswer.lower()
             if riddle.check_answer(enswer):
                 print("corrent!")
                 end_time = perf_counter()
