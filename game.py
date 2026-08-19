@@ -21,14 +21,13 @@ class RiddleGame():
         print(f"hi {username.get_username} \ntotal time is: {total_time:.2f} Seconds")
         result1 = GameResult(username.get_username,strftime("%d/%m/%Y"),total_time,self.__results)
         print(f"num of correct is: {result1.get_total_riddles}")
-        return result1        
-            
+        return result1                 
     def ask_riddle(self, riddle: Riddle) -> QuestionResult:
         start_time = perf_counter()
         while True:
             riddle.display()
             print(riddle.question)
-            enswer = input("enter enswer: ")
+            enswer = input("your enswer: ")
             if riddle.check_answer(enswer):
                 print("corrent!")
                 end_time = perf_counter()

@@ -1,4 +1,5 @@
 from abc import ABC,abstractmethod
+from json import *
 class Riddle(ABC):
     def __init__(self,id,question,correct_answer,difficulty,category):
         self.__riddle_id = id

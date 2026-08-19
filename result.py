@@ -35,8 +35,6 @@ class GameResult():
         for avg in average:
             average[avg] = f"{average[avg][0] / average[avg][1]:.2f}"
         return average
-
-
     def average_time_by_category(self) -> dict[str, float]:
         average = {}
         for question in self.__question_results:
