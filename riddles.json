@@ -114,5 +114,13 @@
         "possible_answers": [],
         "difficulty": "hard",
         "category": "history"
+    },
+    {
+        "id": "1",
+        "question": "1",
+        "type": "open",
+        "correct_answer": "1",
+        "difficulty": "1",
+        "category": "1"
     }
 ]

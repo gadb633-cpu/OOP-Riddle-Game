@@ -30,9 +30,11 @@ class RiddleRepository:
         f.close()
         if type == "multiple_4":
             possible_answers = input("enter 4 option possible_answers: ")
+            possible_answers= possible_answers.split(" ")
             riddles.append({"id":id_, "question":question,"type":type,"correct_answer":correct_answer,"difficulty":difficulty,"category":category,"possible_answers":possible_answers})
         elif type == "multiple_2":
             possible_answers = input("enter 2 option possible_answers: ")
+            possible_answers= possible_answers.split(" ")
             riddles.append({"id":id_, "question":question,"type":type,"correct_answer":correct_answer,"difficulty":difficulty,"category":category,"possible_answers":possible_answers})
         elif type == "open":
             riddles.append({"id":id_, "question":question,"type":type,"correct_answer":correct_answer,"difficulty":difficulty,"category":category})    
@@ -42,8 +44,11 @@ class RiddleRepository:
         # new_riddle["id"]=riddle.riddle_id
         # return new_riddle
         
-    def get_all_riddles() -> list[Riddle]:
-        pass
+    def get_all_riddles(self) -> list[Riddle]:
+        f = open("riddles.json","r")
+        riddles =load(f)
+        f.close()
+        return riddles
     def update_riddle(self, riddle_id: int, new_data: dict) -> bool:
         pass
     def delete_riddle(self, riddle_id: int) -> bool:
