@@ -1,8 +1,5 @@
 from json import *
 from riddle import *
-import os
-import json
-from json import JSONDecodeError
 class RiddleRepository:
     def __init__(self,file_path):
         self.__file_path = file_path
@@ -49,10 +46,16 @@ class RiddleRepository:
         return riddles
     def update_riddle(self,riddles) -> bool:
         new_riddles = []
-        riddle_id = int(input("enter id: "))
         status = True
         while status:
+            riddle_id = int(input("enter id: "))
+            if riddle_id not in [i["id"] for i in riddles]:
+                print("the id is not excist! ")
+                continue
             new_key_to_change = input("Enter the key: ")
+            if any(new_key_to_change not in i for i in riddles):
+                print("the key is not excist! ")
+                continue
             new_value_to_change = input("Enter the value: ")
             for riddle in riddles:
                 if riddle_id == riddle["id"]:
@@ -72,8 +75,17 @@ class RiddleRepository:
             if x == "no":
                 status = False
         return new_riddles     
-    def delete_riddle(self, riddle_id: int) -> bool:
-        pass   
+    def delete_riddle(self,riddles) -> bool:
+        new_riddles = []
+        riddle_id = int(input("enter id: "))
+        if riddle_id not in [i["id"] for i in riddles]:
+            print("the id is not excist! ")
+        for riddle in riddles:
+            if riddle_id == riddle["id"]:
+                continue
+            else:
+                new_riddles.append(riddle)
+        return new_riddles
     def save_riddles(self, riddles: list) -> None:
         with open(self.__file_path, "w") as file:
             dump(riddles, file,indent=4)

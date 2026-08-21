@@ -16,7 +16,7 @@
     {
         "id": 2,
         "question": "What is the capital of France?",
-        "correct_answer": "Paris",
+        "correct_answer": "paris",
         "type": "open",
         "possible_answers": [],
         "difficulty": "easy",
@@ -25,7 +25,7 @@
     {
         "id": 3,
         "question": "Is the Earth flat?",
-        "correct_answer": "No",
+        "correct_answer": "no",
         "type": "multiple_2",
         "possible_answers": [
             "Yes",
@@ -83,7 +83,7 @@
     {
         "id": 8,
         "question": "Water boils at 100 degrees Celsius.",
-        "correct_answer": "True",
+        "correct_answer": "true",
         "type": "multiple_2",
         "possible_answers": [
             "True",
@@ -109,7 +109,7 @@
     {
         "id": 10,
         "question": "Who was the first president of the United States?",
-        "correct_answer": "George Washington",
+        "correct_answer": "george washington",
         "type": "open",
         "possible_answers": [],
         "difficulty": "hard",
