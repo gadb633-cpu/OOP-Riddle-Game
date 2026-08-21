@@ -36,6 +36,6 @@ def main():
             riddles_list.save_riddles(riddles_list.update_riddle(riddles_list.get_all_riddles()))
         if choice_ == "4. Delete riddle":
             riddles_list.save_riddles(riddles_list.delete_riddle(riddles_list.get_all_riddles()))
-        if choice_ == "4. Delete riddle":
-           main()     
+        if choice_ == "5. Return":
+           main()              
 main()    
