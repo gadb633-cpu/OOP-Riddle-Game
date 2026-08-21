@@ -19,7 +19,7 @@ class RiddleRepository:
                 Riddles.append(instance3)
         return Riddles 
     def add_riddle(self) -> None:
-        id_ = input("enter id: ")
+        id_ = int(input("enter id: "))
         question = input("enter question: ")
         correct_answer = input("enter correct_answer: ")
         difficulty = input("enter difficulty: ")
@@ -50,7 +50,7 @@ class RiddleRepository:
         f.close()
         return riddles
     def update_riddle(self, riddle_id: int, new_data: dict) -> bool:
-        pass
+        riddle_id
     def delete_riddle(self, riddle_id: int) -> bool:
         pass   
     def save_riddles(self, riddles: list) -> None:
