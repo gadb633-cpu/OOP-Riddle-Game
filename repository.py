@@ -41,12 +41,7 @@ class RiddleRepository:
             riddles.append({"id":id_, "question":question,"type":type,"correct_answer":correct_answer,"difficulty":difficulty,"category":category,"possible_answers":possible_answers})
         elif type == "open":
             riddles.append({"id":id_, "question":question,"type":type,"correct_answer":correct_answer,"difficulty":difficulty,"category":category})    
-        return riddles
-        # return list(.riddles_list_update)
-        # new_riddle = {}
-        # new_riddle["id"]=riddle.riddle_id
-        # return new_riddle
-        
+        return riddles       
     def get_all_riddles(self) -> list[Riddle]:
         f = open("riddles.json","r")
         riddles =load(f)
